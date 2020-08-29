@@ -1,0 +1,92 @@
+[ 
+	{
+		"taskId": "task0111-01",
+		"taskDesc": "Develop the UI for the User Registration Form",
+		"taskCategory": "Development",
+		"taskSubCategory": "Frontend Development",
+		"taskSubmissionDate": "12 Aug 2020",
+		"taskStatus": "Done",
+		"empId": "Emp010111-03"
+	},
+	{
+		"taskId": "task0111-02",
+		"taskDesc": "Develop the REST API for the User Registration Form",
+		"taskCategory": "Development",
+		"taskSubCategory": "Backend Development",
+		"taskSubmissionDate": "05 Aug 2020",
+		"taskStatus": "Done",
+		"empId": "Emp010111-01"
+	},
+	{
+		"taskId": "task0111-03",
+		"taskDesc": "Project Feature 5.0 Deployed on Jenkins and generate the jenkins build",
+		"taskCategory": "Deployment",
+		"taskSubCategory": "Jenkins Deployment",
+		"taskSubmissionDate": "12 September 2020",
+		"taskStatus": "To Do",
+		"empId": "Emp010111-05"
+	},
+	{
+		"taskId": "task0111-04",
+		"taskDesc": "Product Demo for a new Feature on client side.",
+		"taskCategory": "Presentation",
+		"taskSubCategory": "Client Presentation Demo",
+		"taskSubmissionDate": "02 Oct 2020",
+		"taskStatus": "To Do",
+		"empId": "Emp010111-01"
+	},
+	{
+		"taskId": "task0111-05",
+		"taskDesc": "Test the Developed UI for the User Registration Form",
+		"taskCategory": "Testing",
+		"taskSubCategory": "Frontend Testing",
+		"taskSubmissionDate": "30 Aug 2020",
+		"taskStatus": "In Progress",
+		"empId": "Emp010111-06"
+	},
+	{
+		"taskId": "task0111-06",
+		"taskDesc": "Test the Developed REST API for the User Registration Form",
+		"taskCategory": "Testing",
+		"taskSubCategory": "Backend Testing",
+		"taskSubmissionDate": "30 Aug 2020",
+		"taskStatus": "In Progress",
+		"empId": "Emp010111-04"
+	},
+	{
+		"taskId": "task0111-07",
+		"taskDesc": "Deploy the Feature 5.0 on Production.",
+		"taskCategory": "Deployment",
+		"taskSubCategory": "Production Deployment",
+		"taskSubmissionDate": "01 Nov 2020",
+		"taskStatus": "To Do",
+		"empId": "Emp010111-01"
+	},
+	{
+		"taskId": "task0111-08",
+		"taskDesc": "End to End Flow Testing on Production Server for the Feature 5.0",
+		"taskCategory": "Testing",
+		"taskSubCategory": "Complete Testing",
+		"taskSubmissionDate": "03 Nov 2020",
+		"taskStatus": "To Do",
+		"empId": "Emp010111-02"
+	},
+	{
+		"taskId": "task0111-09",
+		"taskDesc": "Deployed the Changes on QA Environemt for Testing Purpose.",
+		"taskCategory": "Deployment",
+		"taskSubCategory": "Server Development",
+		"taskSubmissionDate": "29 Aug 2020",
+		"taskStatus": "In Progress",
+		"empId": "Emp010111-06"
+	},
+	{
+		"taskId": "task0111-10",
+		"taskDesc": "Bug Discussion with Client",
+		"taskCategory": "BA & Management",
+		"taskSubCategory": "Bug Discussion",
+		"taskSubmissionDate": "10 Nav 2020",
+		"taskStatus": "To Do",
+		"empId": "Emp010111-01"
+	}
+]
