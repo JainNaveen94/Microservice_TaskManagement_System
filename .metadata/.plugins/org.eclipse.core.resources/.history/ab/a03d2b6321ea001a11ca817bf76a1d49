@@ -1,0 +1,5 @@
+package com.navtect.EmployeeService.dao;
+
+public interface EmployeeDAO {
+
+}

@@ -1,0 +1,9 @@
+package com.navtect.EmployeeService.service;
+
+import com.navtect.EmployeeService.model.EmployeeModel;
+
+public interface EmployeeService {
+
+	EmployeeModel getEmployeeDetail(String empId);
+
+}

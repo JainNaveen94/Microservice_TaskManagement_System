@@ -1,0 +1,52 @@
+package com.navtect.EmployeeService.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.navtect.EmployeeService.constants.ErrorMessageConstant;
+import com.navtect.EmployeeService.exception.custom.EmployeeNotFoundException;
+import com.navtect.EmployeeService.exception.custom.InvalidEmployeeIDException;
+import com.navtect.EmployeeService.model.EmployeeModel;
+import com.navtect.EmployeeService.service.EmployeeService;
+
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
+	
+	@GetMapping("/{empId}")
+	public ResponseEntity<EmployeeModel> getEmployeeDetail(@PathVariable String empId) {
+		if(empId != null) {
+			EmployeeModel employee = this.employeeService.getEmployeeDetail(empId);
+			if(employee != null) {
+				return new ResponseEntity<EmployeeModel>(employee, HttpStatus.OK);
+			} else {
+				throw new EmployeeNotFoundException(ErrorMessageConstant.EMPLOYEE_NOT_FOUND + empId);
+			}
+		} else {
+			throw new InvalidEmployeeIDException(ErrorMessageConstant.INVALID_EMPLOYEE_ID);
+		}
+	}
+	
+	@GetMapping("/list")
+	public ResponseEntity<List<EmployeeModel>> getEmployees() {
+		List<EmployeeModel> employeeList = this.employeeService.getEmployeeList();
+		if(employeeList != null || employeeList.size() != 0) {
+			return new ResponseEntity<List<EmployeeModel>>(employeeList, HttpStatus.OK);
+		} else {
+			throw new EmployeeNotFoundException(ErrorMessageConstant.NO_EMPLOYEE);
+		}
+	}
+	
+
+}

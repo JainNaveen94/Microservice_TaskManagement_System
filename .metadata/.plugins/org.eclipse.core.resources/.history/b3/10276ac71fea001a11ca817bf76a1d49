@@ -1,0 +1,5 @@
+package com.navtect.EmployeeService.constants;
+
+public class ErrorMessageConstant {
+
+}

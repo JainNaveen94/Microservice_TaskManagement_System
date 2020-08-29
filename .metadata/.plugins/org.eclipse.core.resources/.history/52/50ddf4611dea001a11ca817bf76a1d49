@@ -1,0 +1,5 @@
+package com.navtect.EmployeeService.exception.custom;
+
+public class EmployeeNotFoundException extends RuntimeException {
+
+}
