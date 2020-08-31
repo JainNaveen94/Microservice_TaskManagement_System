@@ -1,0 +1,57 @@
+Service Name :: netflix-zuul-api-gateway-server (8765)
+
+@EnableZuulProxy
+@Enable DiscoveryClient
+
+Dependencies ::
+	1. Zuul
+	2. Eureka Discovery
+	3. actuator
+	4. devtools
+
+application.properties file
+
+#------------------------App Level Configuration--------------------------#
+spring.application.name=netflix-zuul-api-gateway-server
+server.port=8765
+
+
+#-------------------------Eureka Server URL-------------------------------#
+#Used to Specify where Eureka naming Server is Running
+eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8761/eureka}
+
+#This is Used to Solve the Feign Rest Client Ip Configuration Problem
+eureka.instance.prefer-ip-address=true
+eureka.instance.instance-id=${spring.cloud.client.ip-address}:${server.port}
+eureka.instance.hostname=${spring.cloud.client.ip-address}
+
+
+
+
+Task Performed ::
+1. Create ZuulLoggingFilter Extending ZuulFilter with annotation @Component
+2. Implement unimplemented Method (4 methods)
+3. Modify the filterOrder() by changing return type to 1;
+4. Modify the ShouldFilter() by changing it return to true;
+5. Modify the filterType() by changing it return to pre;
+6. Modify the run() by returning your own logic of logging in separate method such as given below  and call it in run();
+
+	private void applyRequestLogging() {
+		HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+		logger.info("Request ==> {} \n Request-URI ==> {}", request, request.getRequestURI());
+	}
+
+	// create the instance for logger
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	
+
+Please Note :: 
+To make RestTemplate Call the Internal Microservices through API Gateway Process the following Steps ::
+	1. @LoadBalanced Annotation Removed from RestTemplate Bean in main Application packages
+	2. Add the API Gateway URI in application.properties and used that with respective path to access that internal Microservice in Proxy Services
+	
+	
+
+
+

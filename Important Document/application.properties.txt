@@ -4,7 +4,7 @@ server.port=8000
 
 #-------------------------Eureka Server URL-------------------------------#
 #Used to Specify where Eureka naming Server is Running
-eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8761/eureka}s
+eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8761/eureka}
 
 #This is Used to Solve the Feign Rest Client Ip Configuration Problem
 eureka.instance.prefer-ip-address=true
