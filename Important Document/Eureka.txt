@@ -1,0 +1,26 @@
+Service Name :: netflix-eureka-naming-server (8761)
+
+@EnableEurekaServer
+
+Dependencies ::
+	1. Eureka-server
+	2. config-client
+	3. actuator
+	4. dev-tool
+
+Eureka application.properties file
+
+#------------------------App Level Configuration--------------------------#
+spring.application.name=netflix-eureka-naming-server
+server.port=8761
+
+#----------------------Make following statement false as this is not client-------------------------#
+# This is Used to Specify that Eurka is not Registered or dicoverved itself
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+#This is Used to Solve the Feign Rest Client Ip Configuration Problem
+eureka.instance.prefer-ip-address=true
+eureka.instance.instance-id=${spring.cloud.client.ip-address}:${server.port}
+eureka.instance.hostname=${spring.cloud.client.ip-address}
+

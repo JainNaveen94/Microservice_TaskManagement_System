@@ -48,7 +48,6 @@ public class EmployeeProxyServiceImpl implements EmployeeProxyService {
 					employeeServiceURI + "employee/" + empId, HttpMethod.GET, null,
 					new ParameterizedTypeReference<EmployeeModel>() {
 					});
-			System.out.println("=======>" + response);
 			return response.getBody();
 
 		} catch (Exception exception) {
