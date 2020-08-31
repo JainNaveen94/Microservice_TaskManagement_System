@@ -10,7 +10,7 @@
   4. **EurekaNamingService** => Naming Service for Other Services Registery and Discovery Purpose.
   5. **ZuulAPIGatewayService** => API Gateway Provided by Netflix to route the Requested Service from it.
   
-### Port Address For The Micro-Services
+## Port Address For The Micro-Services
 
 | **Service Name**  | **URL:Port Address** |
 | ------------- | ------------- |
@@ -21,7 +21,7 @@
 | **APIGateway**  | http://localhost:8765  |
 
 
-### Some Samples of URIs Calls
+## Some Samples of URIs Calls
 
 | **Service Name** | **URI Calls**  |
 | ------------- |------------- |
@@ -41,4 +41,4 @@
   2. For Any Futher Help if you need in it then just Message me on Git, i will Provide Solution for it.
 
 
-### Thanks 
+### ***(@-@) Thank you (@-@)***
