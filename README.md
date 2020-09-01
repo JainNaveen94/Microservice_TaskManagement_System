@@ -28,7 +28,7 @@
 | **EmployeeService**  | http://localhost:6000/employee/Emp010111-03 |
 | **EmployeeService**  | http://localhost:6000/employee/list |
 | **TaskService**  | http://localhost:7000/task/employee/Emp010111-04 |
-| **TaskService**  | http://localhost:7000/task/employee/list |
+| **TaskService**  | http://localhost:7000/task/list |
 | **DeshboardService**  | http://localhost:8000/dashboard/employee/task_list/Emp010111-06 |
 | **DeshboardService**  | http://localhost:8000/dashboard/employee/task_list |
 | **APIGateway**  | http://localhost:8765/employeeservice/employee/Emp010111-03 |
