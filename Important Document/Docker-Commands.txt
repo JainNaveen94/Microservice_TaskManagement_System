@@ -1,0 +1,39 @@
+#--------------------------------------------------------------- DOCKER IMPORTANT COMMAND ---------------------------------------------------#
+	1. Build Image
+		docker build -f Dockerfile -t <image_name>:<tag_name> .
+		docker build -f Dockerfile -t userservice:v1 .
+	2. Run Image
+		docker run -p targetport:sourceport <image_name>:<tag_name>
+		docker run -p 6000:6000 userservice:v1
+	3. Tag Image to Docker ID
+		docker tag <source_image-name>:<tag_name> <docker_id>/<image_name>:<tag_name>
+		docker tag userservice:v1 naveenjain94/user_service:v1
+	4. Push Image on Docker HUB
+		docker push <tagged_image_name>:<tag_name>
+		docker push naveenjain94/user_service:v1
+	5. Pull Image From Docker HUB
+		docker pull <tagged_image_name>:<tag_name>
+		docker pull naveenjain94/user_service:v1
+
+	#------------------------------------------------------ Other Useful Commands -------------------------------------------------------#
+	
+		1. docker images ======> List of all the Images available locally.
+		2. docker ps ==========> List of all running containers.
+		3. docker stop <container_id> ======> To Stop the Running container of the Image.
+		4. docker kill <container_id> ======> To Kill the Running container of the Image.
+		5. docker image rm <image_id> or <image_name> ======> To Remove the Local Images.
+
+
+
+Please Note :: To make jar File Please use mvn clean install command
+
+
+#-------------------------------------------------------------- DOCKER COMPOSE COMMAND --------------------------------------------------------#
+	1. To run the Docker-compose.yml file
+		docker-compose up
+		docker-compose up -d		====> to make console accessable and clean
+	2. To stop the Docker-compose.yml file
+		docker-compose down
+
+
+		
