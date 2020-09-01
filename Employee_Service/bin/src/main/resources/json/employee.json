@@ -1,0 +1,38 @@
+[
+	{
+		"empId": "Emp010111-01",
+		"empName": "Naveen Jain",
+		"empMobile": "+919999999999",
+		"empAddress": "KGF"
+	},
+	{
+		"empId": "Emp010111-02",
+		"empName": "Siddharth Shukla",
+		"empMobile": "+918888888888",
+		"empAddress": "BIG BOSS"
+	},
+	{
+		"empId": "Emp010111-03",
+		"empName": "Salman Khan",
+		"empMobile": "+916666666666",
+		"empAddress": "KGF"
+	},
+	{
+		"empId": "Emp010111-04",
+		"empName": "Rohit Dagar",
+		"empMobile": "+917777777777",
+		"empAddress": "KGF"
+	},
+	{
+		"empId": "Emp010111-05",
+		"empName": "Amogh Manuja",
+		"empMobile": "+915555555555",
+		"empAddress": "KGF"
+	},
+	{
+		"empId": "Emp010111-06",
+		"empName": "Gurpreet Singh",
+		"empMobile": "+914444444444",
+		"empAddress": "KGF"
+	}
+]
