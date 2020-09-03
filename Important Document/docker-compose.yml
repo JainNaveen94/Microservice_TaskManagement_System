@@ -7,37 +7,49 @@ services:
             - "8761:8761"
 
     netflix-zuul-api-gateway-server:
-        image: naveenjain94/netflix-zuul-api-gateway-server:v1
+        image: naveenjain94/netflix-zuul-api-gateway-server:v2
         container_name: netflix-zuul-api-gateway-server
         ports:
             - "8765:8765"
         depends_on:
             - netflix-eureka-naming-server
+        links:
+            - netflix-eureka-naming-server
+            - rabbitmq
+            - zipkin
         environment:
             EUREKA_URI: 'http://netflix-eureka-naming-server:8761/eureka/'
 
     taskservice:
-        image: naveenjain94/taskservice:v1
+        image: naveenjain94/taskservice:v2
         container_name: taskservice
         ports:
             - "7000:7000"
         depends_on:
             - netflix-eureka-naming-server
+        links:
+            - netflix-eureka-naming-server
+            - rabbitmq
+            - zipkin
         environment:
             EUREKA_URI: 'http://netflix-eureka-naming-server:8761/eureka/'
 
     employeeservice:
-        image: naveenjain94/employeeservice:v1
+        image: naveenjain94/employeeservice:v2
         container_name: employeeservice
         ports:
             - "6000:6000"
         depends_on:
             - netflix-eureka-naming-server
+        links:
+            - netflix-eureka-naming-server
+            - rabbitmq
+            - zipkin
         environment:
             EUREKA_URI: 'http://netflix-eureka-naming-server:8761/eureka/'
             
     deshboardservice:
-        image: naveenjain94/deshboardservice:v1
+        image: naveenjain94/deshboardservice:v2
         container_name: deshboardservice
         ports:
             - "8000:8000"
@@ -46,9 +58,32 @@ services:
             - employeeservice
             - netflix-eureka-naming-server
         links:
+            - netflix-eureka-naming-server
             - taskservice
             - employeeservice
+            - rabbitmq
+            - zipkin
         environment:
             TASK_URI: 'http://taskservice:6000/'
             EMPLOYEE_URI: 'http://employeeservice:7000/'
             EUREKA_URI: 'http://netflix-eureka-naming-server:8761/eureka/'
+
+    rabbitmq:
+        image: rabbitmq:3.7.6-management
+        container_name: rabbitmq
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        environment:
+            - "TZ=@timezone@"
+
+    zipkin:
+        image: openzipkin/zipkin:2.10.2
+        container_name: zipkin
+        depends_on:
+            - rabbitmq
+        ports:
+            - "9411:9411"
+        environment:
+            - "TZ=@timezone@"
+            - "RABBIT_URI=amqp://guest:guest@rabbitmq:5672"
