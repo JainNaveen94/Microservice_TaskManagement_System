@@ -10,6 +10,8 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import brave.sampler.Sampler;
+
 @SpringBootApplication
 @EnableDiscoveryClient
 public class DeshboardServiceApplication {
@@ -23,6 +25,12 @@ public class DeshboardServiceApplication {
 	public RestTemplate restTemplate(final RestTemplateBuilder restTemplateBuilder) {
 		return restTemplateBuilder.setConnectTimeout(Duration.ofSeconds(3)).setReadTimeout(Duration.ofSeconds(3))
 				.build();
+	}
+	
+	@Bean
+	public Sampler defaultSampler()
+	{
+		return Sampler.ALWAYS_SAMPLE;
 	}
 
 }

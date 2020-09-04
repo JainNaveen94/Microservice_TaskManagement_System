@@ -1,0 +1,49 @@
+:: Distributed Tracing ::
+#------------------------------#
+Services Involved::
+*********************
+	1. Spring-sleuth ==> to generate the unique same id for a particular request to each involved microservice.
+	2. RabbitMQ ==> It is kind of Queue in which every microservice will put the log entery and same unique ID for each request such that it will be collected later by zipkin to for tracing of services in more efficient manner.
+	3. Zipkin ==> It is tracing server which mostly used to traced the request which is gone through multiple microservice based on their logs and same uniqu id for each request. It also provide the UI based interface to trace the request more easily.
+	
+Dependendency Involved ::
+***************************
+	1. We have to include the Spring-sleuth Dependency given below to each microservice for which we want to generte Traces with uniqu ID.
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+
+	2. We have to include the Spring-zipkin and Spring-amqp dependency given below to each ms for which we want trace::
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+</dependency>
+		
+		
+Steps ::
+************
+1. Include the Above Spring-sleuth and other Dependency in required microservice with Following Code in Application file as a @bean annotation.
+	@Bean
+	public Sampler defaultSampler()
+	{
+		return Sampler.ALWAYS_SAMPLE;
+	}
+2. Installed the rabbitmq in the system and perform following command to start it::
+	1. rabbitmqctl status
+	2. rabbitmq-plugins enable rabbitmq-management
+	Please Note :: After this Rabbit MQ will start on localhost:15672 with "guest" as id and password.
+3. Installed the Zipkin or Download the JAVA JAR or Docker Images and after that:
+	=> if it is Java Jar Then :
+	=> if it is Docker Images Then :
+	
+	Used the below Command to connect RabbitMQ with Zipkin::
+		==> RABBIT_URL=amqp://localhost java -jar <zipkin_zar-name>.jar
+		
+4. Now Shoot the hit to postman and check Traces on localhost:9411/zipkin
+	
